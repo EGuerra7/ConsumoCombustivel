@@ -10,7 +10,7 @@ export class CombustivelService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/combustivel/'
+  private readonly API = 'https://consumoback.onrender.com/combustivel/'
 
   public registrarCombustivel(combustivel: Combustivel): Observable<Combustivel>{
     return this.http.post<Combustivel>(this.API, combustivel);

@@ -14,7 +14,7 @@ export class AbastecimentoService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/'
+  private readonly API = 'https://consumoback.onrender.com/'
 
   public registrarAbastecimento(abastecimento: Abastecimento): Observable<Abastecimento> {
     return this.http.post<Abastecimento>(this.API, abastecimento);

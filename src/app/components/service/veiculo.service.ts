@@ -10,7 +10,7 @@ export class VeiculoService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/veiculos/'
+  private readonly API = 'https://consumoback.onrender.com/veiculos/'
 
   public registrarVeiculo(veiculo: Veiculo): Observable<Veiculo>{
     return this.http.post<Veiculo>(this.API, veiculo);

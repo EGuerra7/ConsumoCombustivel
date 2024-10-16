@@ -11,7 +11,7 @@ export class CondutorService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/condutores/'
+  private readonly API = 'https://consumoback.onrender.com/condutores/'
 
   public cadastrarCondutor(condutor: Condutor): Observable<Condutor>{
     return this.http.post<Condutor>(this.API, condutor);
