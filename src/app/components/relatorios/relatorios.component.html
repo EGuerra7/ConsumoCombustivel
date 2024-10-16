@@ -1,0 +1,50 @@
+<section>
+  <!--Veículos-->
+  <div class="separacao">
+    <h2>Veículos</h2>
+
+
+      <div  *ngFor="let veiculo of listaDeVeiculos" class="separacao-box">
+        <div (click)="relatorioPorVeiculo(veiculo)" class="click">
+          <span>Tipo: {{ veiculo.tipo }}</span>
+          <span>Marca: {{ veiculo.marca }}</span>
+          <span>Placa: {{ veiculo.placa }}</span>
+          <span>Combustível: {{ veiculo.tipoCombustivel }}</span>
+          <span>Capacidade do Tanque: {{ veiculo.capacidadeTanque }}L</span>
+        </div>
+        <div class="separacao-box-btns">
+          <button (click)="openDialog('Veículo', veiculo)"><mat-icon>edit</mat-icon></button>
+          <button (click)="deletarVeiculo(veiculo)"><mat-icon>delete</mat-icon></button>
+        </div>
+
+      </div>
+
+  </div>
+
+  <!--Condutores-->
+  <div class="separacao">
+    <h2>Condutores</h2>
+
+    <div *ngFor="let condutor of listaDeCondutores" class="separacao-box">
+      <div (click)="relatorioPorCondutor(condutor)" class="click">
+        <span>{{ condutor.nome }}</span>
+        <span>{{ condutor.ativo ? 'Ativo' : 'Desativado' }}</span>
+      </div>
+      <div class="separacao-box-btns">
+        <button (click)="openDialog('Condutor', condutor)"><mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <!--Combustível-->
+  <div class="separacao">
+    <h2>Combustível</h2>
+
+    <div *ngFor="let combustivel of listaDeCombustivel" class="separacao-box padrao">
+      <span>{{ combustivel.tipo }}</span>
+      <div class="separacao-box-btns">
+        <button (click)="deletarCombustivel(combustivel)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</section>

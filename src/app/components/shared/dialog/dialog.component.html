@@ -1,0 +1,61 @@
+<section>
+  <h2 mat-dialog-title>Cadastre o {{ data.tipo }}</h2>
+
+  <!--Veículo-->
+  <form [formGroup]="veiculoForm">
+    <mat-dialog-content *ngIf="data.tipo === 'Veículo'">
+      <div>
+        <label for="tipo">Tipo:</label>
+        <input formControlName="tipo"  type="text" id="tipo">
+      </div>
+      <div>
+        <label for="marca">Marca do Veículo</label>
+        <input formControlName="marca" type="text" id="marca">
+      </div>
+      <div *ngIf="!data.isEdit">
+        <label for="placa">Placa:</label>
+        <input formControlName="placa" type="text" id="placa">
+      </div>
+      <div>
+        <label for="combustivelV">Combustível:</label>
+        <select formControlName="tipoCombustivel" id="combustivelV">
+          <option disabled selected>Selecione</option>
+          <option *ngFor="let combustivel of ListaDeCombustivel" [value]="combustivel.tipo">{{ combustivel.tipo }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="capacidade">Capacidade do Tanque:</label>
+        <input formControlName="capacidadeTanque" type="text" id="capacidade">
+      </div>
+    </mat-dialog-content>
+  </form>
+
+
+  <!--Condutor-->
+  <form [formGroup]="condutorForm">
+    <mat-dialog-content *ngIf="data.tipo === 'Condutor'">
+      <div>
+        <label for="nome">Nome do Condutor:</label>
+        <input formControlName="nome" type="text" id="nome">
+      </div>
+      <div>
+        <mat-slide-toggle formControlName="ativo" (change)="ativar()" labelPosition="before">Ativo:</mat-slide-toggle>
+      </div>
+    </mat-dialog-content>
+  </form>
+
+  <!--Combustível-->
+  <form [formGroup]="combustivelForm">
+    <mat-dialog-content *ngIf="data.tipo === 'Combustível'">
+      <div>
+        <label for="tipoC">Tipo do Combustível</label>
+        <input formControlName="tipo" type="text" id="tipoC">
+      </div>
+    </mat-dialog-content>
+  </form>
+
+  <mat-dialog-actions>
+    <button class="cancel" mat-button (click)="onNoClick()">Cancelar</button>
+    <button class="register" mat-button (click)="cadastrar(data.tipo)">Enviar</button>
+  </mat-dialog-actions>
+</section>

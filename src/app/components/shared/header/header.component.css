@@ -1,0 +1,38 @@
+.cabecalho{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--cor-tituloH);
+  background-color: var(--cor-principal);
+  padding: 1em 35px;
+}
+
+.cabecalho-titulo{
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  color: var(--cor-tituloH);
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+
+nav .botoes{
+  font-size: 18px;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--cor-tituloH);
+  transition: .3s;
+  padding: 8px;
+  border-radius: 20px;
+
+  &:hover{
+   transform: scale(1.05);
+  }
+}

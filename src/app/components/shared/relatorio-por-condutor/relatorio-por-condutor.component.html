@@ -1,0 +1,38 @@
+<main>
+  <div class="title">
+    <h1>{{ condutorData?.nome }}</h1>
+  </div>
+  <section>
+    <div class="quebra-linha">
+      <div class="bluebox">
+        <p>Total de Abastecimentos</p>
+        <span>{{ relatorio.totalAbastecimentos }}</span>
+      </div>
+
+      <div class="bluebox">
+        <p>Valor Total</p>
+        <span>R$ {{ relatorio.valorTotal | number:'1.2-2'}}</span>
+      </div>
+
+      <div class="bluebox">
+        <p>Custo Médio</p>
+        <span>R$ {{ relatorio.custoMedioCombustivel | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <div class="quebra-linha">
+
+      <div class="bluebox">
+        <p>Veículo Principal</p>
+        <span>{{ relatorio.veiculoPrincipal }}</span>
+      </div>
+
+      <div class="bluebox">
+        <p>Litragem Consumida</p>
+        <span>{{ relatorio.litragemConsumida | number:'1.2-2'}} L</span>
+      </div>
+    </div>
+  </section>
+
+
+</main>

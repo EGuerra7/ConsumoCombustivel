@@ -1,0 +1,58 @@
+main{
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5em;
+}
+
+.title{
+  text-align: center;
+}
+
+.title h1{
+  font-size: 48px;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  gap: 2em;
+}
+
+.quebra-linha{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.bluebox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-principal);
+  color: white;
+  width: 350px;
+  height: 170px;
+  border-radius: 15px;
+  gap: 1.2em;
+  text-align: center;
+
+}
+
+.bluebox p {
+  font-size: 26px;
+  font-weight: 300;
+
+}
+
+.bluebox span{
+  font-size: 30px;
+  font-weight: 300;
+}

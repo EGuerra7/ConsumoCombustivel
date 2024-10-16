@@ -1,0 +1,92 @@
+<main>
+  <section class="container">
+    <h1>Abastecimento</h1>
+    <form [formGroup]="abastecimentoForm">
+      <div class="abastecimento-line">
+        <mat-form-field>
+          <mat-label>Data</mat-label>
+          <input formControlName="data" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hora</mat-label>
+          <input matInput formControlName="hora">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Condutor</mat-label>
+          <mat-select formControlName="condutor">
+            <mat-option *ngFor="let condutor of listaDeCondutores" [value]="condutor">{{ condutor.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Veículo</mat-label>
+          <mat-select formControlName="placaVeiculo">
+            <mat-option *ngFor="let veiculo of listaDeVeiculos" [value]="veiculo.placa">{{ veiculo.marca }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="abastecimento-line">
+        <mat-form-field>
+          <mat-label>Combustível</mat-label>
+          <mat-select formControlName="combustivel">
+            <mat-option *ngFor="let combustivel of listaDeCombustivel" [value]="combustivel">{{ combustivel.tipo }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Km</mat-label>
+          <input matInput formControlName="quilometragem">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Preço</mat-label>
+          <input matInput formControlName="preco">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Valor Total</mat-label>
+          <input matInput formControlName="valorTotal">
+        </mat-form-field>
+      </div>
+
+      <button (click)="registrarAbastecimento()" class="btn-enviar">Enviar</button>
+    </form>
+    <mat-divider></mat-divider>
+  </section>
+
+  <section class="container">
+    <h1>Registros</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Condutor</th>
+          <th>Placa</th>
+          <th>Km</th>
+          <th>Combustível</th>
+          <th>Litros</th>
+          <th>Valor/L</th>
+          <th>Valor Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Abastecimento of listaDeAbastecimentos">
+          <td>{{ Abastecimento.data }}</td>
+          <td>{{ Abastecimento.hora }}</td>
+          <td>{{ Abastecimento.condutor?.nome ?? 'N/A' }}</td>
+          <td>{{ Abastecimento.placaVeiculo }}</td>
+          <td>{{ Abastecimento.quilometragem }} Km</td>
+          <td>{{ Abastecimento.combustivel?.tipo ?? 'N/A' }}</td>
+          <td>{{ Abastecimento.litros }} L</td>
+          <td>R$ {{ Abastecimento.preco }}</td>
+          <td>R$ {{ Abastecimento.valorTotal }}</td>
+        </tr>
+    </table>
+  </section>
+</main>
